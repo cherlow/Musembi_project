@@ -8,18 +8,18 @@
 @section('content')
 
 
-        
-        
+
+
             <!-- Dashboard Content
             ================================================== -->
             <div class="dashboard-content-container" data-simplebar>
                 <div class="dashboard-content-inner" >
-                    
+
                     <!-- Dashboard Headline -->
                     <div class="dashboard-headline">
                         <h3>Howdy, Tom!</h3>
                         <span>We are glad to see you again!</span>
-        
+
                         <!-- Breadcrumbs -->
                         <nav id="breadcrumbs" class="dark">
                             <ul>
@@ -28,19 +28,13 @@
                             </ul>
                         </nav>
                     </div>
-            
+
                     <!-- Fun Facts Container -->
                     <div class="fun-facts-container">
+
                         <div class="fun-fact">
                             <div class="fun-fact-text">
-                                <span>Task Bids Won</span>
-                                <h4>22</h4>
-                            </div>
-                            <div class="fun-fact-icon"><i class="icon-material-outline-gavel" style="color:#36bd78"></i></div>
-                        </div>
-                        <div class="fun-fact">
-                            <div class="fun-fact-text">
-                                <span>Jobs Applied</span>
+                                <span>Jobs Posted</span>
                                 <h4>4</h4>
                             </div>
                             <div class="fun-fact-icon"><i class="icon-material-outline-business-center" style="color:#b81b7f"></i></div>
@@ -52,102 +46,20 @@
                             </div>
                             <div class="fun-fact-icon"><i class="icon-material-outline-rate-review" style="color:#efa80f"></i></div>
                         </div>
-        
+
                         <!-- Last one has to be hidden below 1600px, sorry :( -->
-                        <div class="fun-fact">
-                            <div class="fun-fact-text">
-                                <span>This Month Views</span>
-                                <h4>987</h4>
-                            </div>
-                            <div class="fun-fact-icon"><i class="icon-feather-trending-up" style="color:#2a41e6"></i></div>
-                        </div>
+
                     </div>
 
-                   
-                    
+
+
                     <!-- Row -->
-                    <div class="row">
-        
-                        <div class="col-xl-8">
-                            <!-- Dashboard Box -->
-                            <div class="dashboard-box main-box-in-row">
-                                <div class="headline">
-                                    <h3><i class="icon-feather-bar-chart-2"></i> Your Profile Views</h3>
-                                    <div class="sort-by">
-                                        <select class="selectpicker hide-tick">
-                                            <option>Last 6 Months</option>
-                                            <option>This Year</option>
-                                            <option>This Month</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <!-- Chart -->
-                                    <div class="chart">
-                                        <canvas id="chart" width="100" height="45"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Dashboard Box / End -->
-                        </div>
-                        <div class="col-xl-4">
-        
-                            <!-- Dashboard Box -->
-                            <!-- If you want adjust height of two boxes 
-                                 add to the lower box 'main-box-in-row' 
-                                 and 'child-box-in-row' to the higher box -->
-                            <div class="dashboard-box child-box-in-row"> 
-                                <div class="headline">
-                                    <h3><i class="icon-material-outline-note-add"></i> Notes</h3>
-                                </div>	
-        
-                                <div class="content with-padding">
-                                    <!-- Note -->
-                                    <div class="dashboard-note">
-                                        <p>Meeting with candidate at 3pm who applied for Bilingual Event Support Specialist</p>
-                                        <div class="note-footer">
-                                            <span class="note-priority high">High Priority</span>
-                                            <div class="note-buttons">
-                                                <a href="#" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-                                                <a href="#" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Note -->
-                                    <div class="dashboard-note">
-                                        <p>Extend premium plan for next month</p>
-                                        <div class="note-footer">
-                                            <span class="note-priority low">Low Priority</span>
-                                            <div class="note-buttons">
-                                                <a href="#" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-                                                <a href="#" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Note -->
-                                    <div class="dashboard-note">
-                                        <p>Send payment to David Peterson</p>
-                                        <div class="note-footer">
-                                            <span class="note-priority medium">Medium Priority</span>
-                                            <div class="note-buttons">
-                                                <a href="#" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-                                                <a href="#" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div class="add-note-button">
-                                        <a href="#small-dialog" class="popup-with-zoom-anim button full-width button-sliding-icon">Add Note <i class="icon-material-outline-arrow-right-alt"></i></a>
-                                    </div>
-                            </div>
-                            <!-- Dashboard Box / End -->
-                        </div>
-                    </div>
+
                     <!-- Row / End -->
-        
+
                     <!-- Row -->
                     <div class="row">
-        
+
                         <!-- Dashboard Box -->
                         <div class="col-xl-6">
                             <div class="dashboard-box">
@@ -213,12 +125,12 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- Dashboard Box -->
                         <div class="col-xl-6">
                             <div class="dashboard-box">
                                 <div class="headline">
-                                    <h3><i class="icon-material-outline-assignment"></i> Orders</h3>
+                                    <h3><i class="icon-material-outline-assignment"></i> Jobs</h3>
                                 </div>
                                 <div class="content">
                                     <ul class="dashboard-box-list">
@@ -282,10 +194,10 @@
                                 </div>
                             </div>
                         </div>
-        
+
                     </div>
                     <!-- Row / End -->
-        
+
                     <!-- Footer -->
                     <div class="dashboard-footer-spacer"></div>
                     <div class="small-footer margin-top-15">
@@ -317,52 +229,52 @@
                         <div class="clearfix"></div>
                     </div>
                     <!-- Footer / End -->
-        
+
                 </div>
             </div>
             <!-- Dashboard Content / End -->
-       
-        
-        
+
+
+
         <!-- Apply for a job popup
         ================================================== -->
         <div id="small-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
-        
+
             <!--Tabs -->
             <div class="sign-in-form">
-        
+
                 <ul class="popup-tabs-nav">
                     <li><a href="#tab">Add Note</a></li>
                 </ul>
-        
+
                 <div class="popup-tabs-container">
-        
+
                     <!-- Tab -->
                     <div class="popup-tab-content" id="tab">
-                        
+
                         <!-- Welcome Text -->
                         <div class="welcome-text">
                             <h3>Do Not Forget 😎</h3>
                         </div>
-                            
+
                         <!-- Form -->
                         <form method="post" id="add-note">
-        
+
                             <select class="selectpicker with-border default margin-bottom-20" data-size="7" title="Priority">
                                 <option>Low Priority</option>
                                 <option>Medium Priority</option>
                                 <option>High Priority</option>
                             </select>
-        
+
                             <textarea name="textarea" cols="10" placeholder="Note" class="with-border"></textarea>
-        
+
                         </form>
-                        
+
                         <!-- Button -->
                         <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="add-note">Add Note <i class="icon-material-outline-arrow-right-alt"></i></button>
-        
+
                     </div>
-        
+
                 </div>
             </div>
         </div>

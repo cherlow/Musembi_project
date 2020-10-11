@@ -24,7 +24,7 @@ class Task extends Model
         }
         $this->attributes['slug']=$slug;
     }
-    
+
     protected $fillable = [
         'title','description','slug','user_id','status','developer_id','category_id','min_budget','max_budget','mode','location'
     ];
@@ -43,5 +43,8 @@ class Task extends Model
     }
     public function review(){
         return $this->hasOne('App\Review');
+    }
+    public function bids(){
+        return $this->hasMany('App\Bid');
     }
 }

@@ -13,8 +13,8 @@ class FrontEndApiController extends Controller
 {
     // ################################ get all tasks ###############################endregion
     public function gettasks(){
-        
-        return TaskResource::collection(Task::paginate(10));
+
+        return( TaskResource::collection(Task::paginate(10)));
     }
 
     // ##################################### get a single task ############################endregion

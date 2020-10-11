@@ -26,5 +26,11 @@ Route::get('/newtask', 'TaskController@index');
 Route::get('/managetasks', 'TaskController@managetasks');
 Route::get('/tasks/{slug}', 'TaskController@show');
 Route::get('/hustlancers/{name}', 'PagesController@singlehustlancer');
-
-
+Route::get('/reviews', 'ReviewController@index');
+Route::get('/applications/{task}', 'JobController@index');
+Route::get('/usermessages', 'MessageController@index');
+Route::get('/userreviews', 'ReviewController@userreviews');
+Route::get('/reviews', 'ReviewController@index');
+Route::get('/userjobs', 'JobController@userjobs');
+Route::get('/useraccount', 'UsersController@useraccount');
+Route::get('/samp', 'UsersController@samp');

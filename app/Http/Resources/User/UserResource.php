@@ -26,7 +26,7 @@ class UserResource extends JsonResource
             "mobile"=>$this->mobile,
             "bio"=>$this->description,
             "avatar"=>asset('storage/userprofiles/'.$this->cover_pic),
-            
+
             "skills"=> SkillResource::collection($this->skills) ,
             "attachments"=>AttachmentResource::collection($this->attachments) ,
         ];

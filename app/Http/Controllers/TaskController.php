@@ -19,7 +19,9 @@ class TaskController extends Controller
     }
 
     public function managetasks(){
-        return view('backend.managetasks');
+
+        $tasks= auth()->user()->tasks;
+        return view('backend.managetasks')->with("tasks",$tasks);
     }
 
     /**
@@ -54,7 +56,7 @@ class TaskController extends Controller
         $task= new TaskResource(Task::where('slug',$slug)->first());
 
         return view('pages.singletask')->with('task',$task);
-        
+
     }
 
     /**

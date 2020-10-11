@@ -14,7 +14,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+
+
+        return view("backend.dashboardreviews");
     }
 
     /**
@@ -81,5 +83,11 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         //
+    }
+
+    public function userreviews()
+    {
+
+        return view("backend.userreviews");
     }
 }

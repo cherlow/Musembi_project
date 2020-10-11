@@ -8,3 +8,4 @@ class Bid extends Model
 {
     //
 }
+

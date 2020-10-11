@@ -1,10 +1,10 @@
 <template>
     <div id="header">
 		<div class="container">
-			
+
 			<!-- Left Side Content -->
 			<div class="left-side">
-				
+
 				<!-- Logo -->
 				<div id="logo">
 					<a href="/"><h2 style="color:black; padding-top:20px">Ajira</h2></a>
@@ -14,57 +14,36 @@
 				<nav id="navigation">
 					<ul id="responsive">
 
-						<li><a href="/tasks" class="current">Tasks</a>
-							
+						<li><a href="/tasks" class="current">Jobs</a>
+
 						</li>
 
-						<li><a href="/hustlancers">Hustlancers</a>
-						
+						<li><a href="/hustlancers">Users</a>
+
 						</li>
-						<li><a href="/featuredjobs">Featured Jobs</a>
-						
+
+
 						</li>
                         	<li><a href="#"> <i class="icon-material-outline-settings"></i>  My Account</a>
-						
-						</li>
-						<li><a href="#">Forum</a>
-						
-						</li>
-						
-                        <li v-if="auth"><a href="/home"><i class="icon-material-outline-dashboard"></i>  Dashboard</a>
-							<ul class="dropdown-nav">
-								<li><a href="/home">Dashboard</a></li>
-								<li><a href="/messages">Messages</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-manage-jobs.html">Jobs</a>
-									<ul class="dropdown-nav">
-										<li><a href="dashboard-manage-jobs.html">Manage Jobs</a></li>
-										<li><a href="dashboard-manage-candidates.html">Manage Candidates</a></li>
-										<li><a href="dashboard-post-a-job.html">Post a Job</a></li>
-									</ul>
-								</li>
-								<li><a href="dashboard-manage-tasks.html">Tasks</a>
-									<ul class="dropdown-nav">
-										<li><a href="dashboard-manage-tasks.html">Manage Tasks</a></li>
-										<li><a href="dashboard-manage-bidders.html">Manage Bidders</a></li>
-										<li><a href="dashboard-my-active-bids.html">My Active Bids</a></li>
-										<li><a href="dashboard-post-a-task.html">Post a Task</a></li>
-									</ul>
-								</li>
-								<li><a href="dashboard-settings.html">Settings</a></li>
-							</ul>
-						</li>
-					
 
-						
-                       
+						</li>
+
+
+						</li>
+
+                        <li v-if="auth"><a href="/home"><i class="icon-material-outline-dashboard"></i>  Dashboard</a>
+
+						</li>
+
+
+
+
 
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
 				<!-- Main Navigation / End -->
-				
+
 			</div>
 			<!-- Left Side Content / End -->
 
@@ -74,7 +53,7 @@
 
 				<!--  User Notifications -->
 				<div class="header-widget hide-on-mobile">
-					
+
 					<!-- Notifications -->
 					<div class="header-notifications">
 
@@ -142,7 +121,7 @@
 						</div>
 
 					</div>
-					
+
 					<!-- Messages -->
 					<div class="header-notifications">
 						<div class="header-notifications-trigger">
@@ -230,19 +209,14 @@
 										{{user.username}} <span>{{user.account_type}}</span>
 									</div>
 								</div>
-								
+
 								<!-- User Status Switcher -->
-								<div class="status-switch" id="snackbar-user-status">
-									<label class="user-online current-status">developer</label>
-									<label class="user-invisible">employer</label>
-									<!-- Status Indicator -->
-									<span class="status-indicator" aria-hidden="true"></span>
-								</div>	
+
 						</div>
-						
+
 						<ul class="user-menu-small-nav">
 							<li><a href="/home"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-							<li><a href="dashboard-settings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
+							<li><a href="/my-account"><i class="icon-material-outline-settings"></i> Settings</a></li>
 							<li><a href="/logout" @click.prevent="logout"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
 						</ul>
 
@@ -291,7 +265,7 @@
 
 <script>
 export default {
-    
+
     name:"backheader",
 
     props:['auth'],
@@ -305,16 +279,16 @@ export default {
 	created(){
 this.getuser();
 	},
-	
+
     methods:{
 		   getuser(){
-			   
+
             axios.get('/api/user').then((res)=>{
                 this.user=res.data.data;
                 this.image=res.data.data.avatar;
 			}).catch(err=>console.log(err))
-			   
-            
+
+
         },
         logout(){
  document.getElementById('logout-form').submit();

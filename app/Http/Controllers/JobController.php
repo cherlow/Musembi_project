@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\Task;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -12,9 +13,10 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Task $task)
     {
-        //
+        return $task->bids;
+        return view("backend.applications");
     }
 
     /**
@@ -81,5 +83,11 @@ class JobController extends Controller
     public function destroy(Job $job)
     {
         //
+    }
+
+    public function userjobs()
+    {
+
+        return view("backend.userjobs");
     }
 }

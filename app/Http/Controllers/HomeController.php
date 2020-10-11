@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+
+
+
+        // check for roles goes here
+
+
+        if (auth()->user()->role == "hustlancer") {
+
+            return view("backend.userdashboard");
+        } else if (auth()->user()->role == "employer") {
+            return view('backend.dashboard');
+        }
+        else{
+            return view('backend.admindashboard');
+        }
     }
 }
