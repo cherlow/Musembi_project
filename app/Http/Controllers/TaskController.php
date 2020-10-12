@@ -18,10 +18,11 @@ class TaskController extends Controller
         return view('backend.newtask');
     }
 
-    public function managetasks(){
+    public function managetasks()
+    {
 
-        $tasks= auth()->user()->tasks;
-        return view('backend.managetasks')->with("tasks",$tasks);
+        $tasks = auth()->user()->tasks;
+        return view('backend.managetasks')->with("tasks", $tasks);
     }
 
     /**
@@ -53,10 +54,10 @@ class TaskController extends Controller
      */
     public function show($slug)
     {
-        $task= new TaskResource(Task::where('slug',$slug)->first());
+        $task = new TaskResource(Task::where('slug', $slug)->first());
+        $applicants = $task->bids;
 
-        return view('pages.singletask')->with('task',$task);
-
+        return view('pages.singletask')->with('task', $task)->with("applicants", $applicants);
     }
 
     /**

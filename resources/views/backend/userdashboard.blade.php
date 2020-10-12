@@ -17,7 +17,7 @@
 
             <!-- Dashboard Headline -->
             <div class="dashboard-headline">
-            <h3>Howdy, {{auth()->user()->username}}</h3>
+            <h3>Howdy, {{auth()->user()->name}}</h3>
                 <span>We are glad to see you again!</span>
 
                 <!-- Breadcrumbs -->

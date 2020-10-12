@@ -11,6 +11,8 @@
         <!-- Main Navigation -->
         <nav id="navigation">
           <ul id="responsive">
+            <li><a href="/" class="current">Home</a></li>
+
             <li><a href="/tasks" class="current">Jobs</a></li>
 
             <li><a href="/hustlancers">Users</a></li>
@@ -349,7 +351,6 @@
                 </div>
 
                 <!-- User Status Switcher -->
-
               </div>
 
               <ul class="user-menu-small-nav">
@@ -361,11 +362,16 @@
                 </li>
 
                 <li>
-                  <a href="#"
+                  <a href="/logout" @click.prevent="logout"
                     ><i class="icon-material-outline-power-settings-new"></i>
                     Logout</a
                   >
                 </li>
+
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                        <input type="hidden" name="_token" :value="token"/>
+                                    </form>
+<!-- end logout form -->
               </ul>
             </div>
           </div>
@@ -412,7 +418,6 @@ export default {
     return {
       token: document.head.querySelector('meta[name="csrf-token"]').content,
       user: {},
-      image: "",
     };
   },
   created() {

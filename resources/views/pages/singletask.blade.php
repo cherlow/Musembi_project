@@ -12,32 +12,32 @@
         <!-- Header Container
         ================================================== -->
         <header id="header-container" class="fullwidth">
-        
+
             <!-- Header -->
             <headercomponent auth="{{auth()->user()}}" />
             <!-- Header / End -->
-        
+
         </header>
         <div class="clearfix"></div>
         <!-- Header Container / End -->
-        
-    <singletask task="{{json_encode($task)}}" auth="{{auth()->user()}}"/>
 
-        
-        
-        
-        
-        
+    <singletask task="{{json_encode($task)}}" auth="{{auth()->user()}}" applicants="{{json_encode($applicants)}}"/>
+
+
+
+
+
+
         <!-- Spacer -->
         <div class="margin-top-15"></div>
         <!-- Spacer / End-->
-        
-      
-        
+
+
+
         </div>
         <!-- Wrapper / End -->
-        
-        
-        
+
+
+
 
 @endsection

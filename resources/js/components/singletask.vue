@@ -43,7 +43,7 @@
         <div class="col-xl-8 col-lg-8 content-right-offset">
           <!-- Description -->
           <div class="single-page-section">
-            <h3 class="margin-bottom-25">Project Description</h3>
+            <h3 class="margin-bottom-25">Job Description</h3>
             {{ this.taskdata.details }}
           </div>
 
@@ -74,55 +74,6 @@
           <div class="clearfix"></div>
 
           <!-- Freelancers Bidding -->
-          <div class="boxed-list margin-bottom-60">
-            <div class="boxed-list-headline">
-              <h3>
-                <i class="icon-material-outline-group"></i> Freelancers Bidding
-              </h3>
-            </div>
-            <ul class="boxed-list-ul">
-              <li>
-                <div class="bid">
-                  <!-- Avatar -->
-                  <div class="bids-avatar">
-                    <div class="freelancer-avatar">
-                      <div class="verified-badge"></div>
-                      <a href="single-freelancer-profile.html"
-                        ><img src="/images/user-avatar-big-01.jpg" alt=""
-                      /></a>
-                    </div>
-                  </div>
-
-                  <!-- Content -->
-                  <div class="bids-content">
-                    <!-- Name -->
-                    <div class="freelancer-name">
-                      <h4>
-                        <a href="single-freelancer-profile.html"
-                          >Tom Smith
-                          <img
-                            class="flag"
-                            src="/images/flags/gb.svg"
-                            alt=""
-                            title="United Kingdom"
-                            data-tippy-placement="top"
-                        /></a>
-                      </h4>
-                      <div class="star-rating" data-rating="4.9"></div>
-                    </div>
-                  </div>
-
-                  <!-- Bid -->
-                  <div class="bids-bid">
-                    <div class="bid-rate">
-                      <div class="rate">$4,400</div>
-                      <span>in 7 days</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <!-- Sidebar -->
@@ -138,17 +89,19 @@
                 <div class="bidding-inner" v-if="auth">
                   <div class="submit-field">
                     <h5>Introduce Yourself</h5>
-                    <textarea cols="30" rows="5" class="with-border"></textarea>
+                    <textarea
+                      cols="30"
+                      rows="5"
+                      class="with-border"
+                      v-model="intro"
+                    ></textarea>
                   </div>
-
-
-
-
 
                   <!-- Button -->
                   <button
                     id="snackbar-place-bid"
                     class="button ripple-effect move-on-hover full-width margin-top-30"
+                    @click.prevent="bidtask()"
                   >
                     <span>Place a Bid</span>
                   </button>
@@ -221,14 +174,9 @@
 
             <!-- Sidebar Widget -->
             <div class="sidebar-widget">
-              <h3>Bookmark or Share</h3>
+              <h3>Share</h3>
 
               <!-- Bookmark Button -->
-              <button class="bookmark-button margin-bottom-25">
-                <span class="bookmark-icon"></span>
-                <span class="bookmark-text">Bookmark</span>
-                <span class="bookmarked-text">Bookmarked</span>
-              </button>
 
               <!-- Copy URL -->
               <div class="copy-url">
@@ -244,52 +192,6 @@
               </div>
 
               <!-- Share Buttons -->
-              <div class="share-buttons margin-top-25">
-                <div class="share-buttons-trigger">
-                  <i class="icon-feather-share-2"></i>
-                </div>
-                <div class="share-buttons-content">
-                  <span>Interesting? <strong>Share It!</strong></span>
-                  <ul class="share-buttons-icons">
-                    <li>
-                      <a
-                        href="#"
-                        data-button-color="#3b5998"
-                        title="Share on Facebook"
-                        data-tippy-placement="top"
-                        ><i class="icon-brand-facebook-f"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        data-button-color="#1da1f2"
-                        title="Share on Twitter"
-                        data-tippy-placement="top"
-                        ><i class="icon-brand-twitter"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        data-button-color="#dd4b39"
-                        title="Share on Google Plus"
-                        data-tippy-placement="top"
-                        ><i class="icon-brand-google-plus-g"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        data-button-color="#0077b5"
-                        title="Share on LinkedIn"
-                        data-tippy-placement="top"
-                        ><i class="icon-brand-linkedin-in"></i
-                      ></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -303,15 +205,42 @@ export default {
   props: {
     task: String,
     auth: String,
+    applicants: String,
   },
   data() {
     return {
       taskdata: {},
       token: document.head.querySelector('meta[name="csrf-token"]').content,
+
+      intro: "",
+      applications: [],
     };
   },
   created() {
     this.taskdata = JSON.parse(this.task);
+    this.applications = JSON.parse(this.applicants);
+  },
+  methods: {
+    bidtask() {
+      let task = JSON.parse(this.task);
+      let auth = JSON.parse(this.auth);
+
+      let formData = new FormData();
+      formData.append("taskid", task["id"]);
+      formData.append("details", this.intro);
+      formData.append("authid", auth["id"]);
+
+      axios
+        .post("/api/bid", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => console.log(e));
+    },
   },
 };
 </script>

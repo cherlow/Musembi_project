@@ -27,6 +27,7 @@ Route::get('/getcategories', 'BackendApiController@getcategories');
 Route::post('/uploadtaskattachments', 'BackendApiController@uploadtaskattachments');
 Route::get('/gettasks', 'FrontEndApiController@gettasks');
 Route::get('/gethustlancers', 'FrontEndApiController@gethustlancers');
+Route::post('/bid', 'BidController@store');
 
 
 
