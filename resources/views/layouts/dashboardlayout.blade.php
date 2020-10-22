@@ -66,8 +66,8 @@
                                         <li class="active"><a href="{{ url('/home') }}"><i
                                                     class="icon-material-outline-dashboard"></i> Dashboard</a></li>
                                         <li><a href="{{ url('/messages') }}"><i
-                                                    class="icon-material-outline-question-answer"></i> Messages <span
-                                                    class="nav-tag">2</span></a></li>
+                                                    class="icon-material-outline-question-answer"></i> Messages </a>
+                                        </li>
 
                                         <li><a href="{{ url('/reviews') }}"><i
                                                     class="icon-material-outline-rate-review"></i> Reviews</a></li>

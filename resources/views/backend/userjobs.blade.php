@@ -7,177 +7,136 @@
 @endsection
 @section('content')
 
-	<!-- Dashboard Content
+<!-- Dashboard Content
 	================================================== -->
-	<div class="dashboard-content-container" data-simplebar>
-		<div class="dashboard-content-inner" >
+<div class="dashboard-content-container" data-simplebar>
+	<div class="dashboard-content-inner">
 
-			<!-- Dashboard Headline -->
-			<div class="dashboard-headline">
-				<h3>Manage Jobs</h3>
+		<!-- Dashboard Headline -->
+		<div class="dashboard-headline">
+			<h3>Manage Applications</h3>
 
-				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs" class="dark">
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Dashboard</a></li>
-						<li>Manage Jobs</li>
-					</ul>
-				</nav>
-			</div>
+			<!-- Breadcrumbs -->
+			<nav id="breadcrumbs" class="dark">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Dashboard</a></li>
+					<li>Manage Applications</li>
+				</ul>
+			</nav>
+		</div>
 
-			<!-- Row -->
-			<div class="row">
+		<!-- Row -->
+		<div class="row">
 
-				<!-- Dashboard Box -->
-				<div class="col-xl-12">
-					<div class="dashboard-box margin-top-0">
+			<!-- Dashboard Box -->
+			<div class="col-xl-12">
+				<div class="dashboard-box margin-top-0">
 
-						<!-- Headline -->
-						<div class="headline">
-							<h3><i class="icon-material-outline-business-center"></i> My Job Listings</h3>
-						</div>
+					<!-- Headline -->
+					<div class="headline">
+						<h3><i class="icon-material-outline-business-center"></i> My Job Applications</h3>
+					</div>
 
-						<div class="content">
-							<ul class="dashboard-box-list">
-								<li>
-									<!-- Job Listing -->
-									<div class="job-listing">
+					<div class="content">
+						<ul class="dashboard-box-list">
 
-										<!-- Job Listing Details -->
-										<div class="job-listing-details">
 
-											<!-- Logo -->
-<!-- 											<a href="#" class="job-listing-company-logo">
+							@foreach ($jobs as $job)
+							<li>
+								<!-- Job Listing -->
+								<div class="job-listing">
+
+									<!-- Job Listing Details -->
+									<div class="job-listing-details">
+
+										<!-- Logo -->
+										<!-- 											<a href="#" class="job-listing-company-logo">
 												<img src="images/company-logo-05.png" alt="">
 											</a> -->
 
-											<!-- Details -->
-											<div class="job-listing-description">
-												<h3 class="job-listing-title"><a href="#">Frontend React Developer</a> <span class="dashboard-status-button green">Pending Approval</span></h3>
+										<!-- Details -->
+										<div class="job-listing-description">
+											<h3 class="job-listing-title"><a href="#">{{ $job->task->title }}</a>
 
-												<!-- Job Listing Footer -->
-												<div class="job-listing-footer">
-													<ul>
-														<li><i class="icon-material-outline-date-range"></i> Posted on 10 July, 2018</li>
-														<li><i class="icon-material-outline-date-range"></i> Expiring on 10 August, 2018</li>
-													</ul>
-												</div>
+												@if ($job->task->status=="pending")
+												<span class="dashboard-status-button green">active</span>
+												@else
+												<span class="dashboard-status-button green">closed</span>
+												@endif
+
+
+											</h3>
+
+											<!-- Job Listing Footer -->
+											<div class="job-listing-footer">
+												<ul>
+													<li><i class="icon-material-outline-date-range"></i> Applied
+														{{ $job->created_at->diffForHumans() }}</li>
+
+												</ul>
 											</div>
 										</div>
 									</div>
+								</div>
 
-									<!-- Buttons -->
-									<div class="buttons-to-right always-visible">
-										<a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">0</span></a>
-										<a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-										<a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-									</div>
-								</li>
+								<!-- Buttons -->
+								<div class="buttons-to-right always-visible">
+									<a href="/messages/{{ $job->task->user->name }}" class="button ripple-effect"><i
+											class="icon-material-outline-supervisor-account"></i> Message Employer
+									</a>
+									{{-- <a href="#" class="button gray ripple-effect ico" title="Edit"
+										data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+									<a href="#" class="button gray ripple-effect ico" title="Remove"
+										data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a> --}}
+								</div>
+							</li>
+							@endforeach
 
-								<li>
-									<!-- Job Listing -->
-									<div class="job-listing">
 
-										<!-- Job Listing Details -->
-										<div class="job-listing-details">
 
-											<!-- Details -->
-											<div class="job-listing-description">
-												<h3 class="job-listing-title"><a href="#">Full Stack PHP Developer</a> <span class="dashboard-status-button yellow">Expiring</span></h3>
-
-												<!-- Job Listing Footer -->
-												<div class="job-listing-footer">
-													<ul>
-														<li><i class="icon-material-outline-date-range"></i> Posted on 28 June, 2018</li>
-														<li><i class="icon-material-outline-date-range"></i> Expiring on 28 July, 2018</li>
-													</ul>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<!-- Buttons -->
-									<div class="buttons-to-right always-visible">
-										<a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">3</span></a>
-										<a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-										<a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-									</div>
-								</li>
-
-								<li>
-									<!-- Job Listing -->
-									<div class="job-listing">
-
-										<!-- Job Listing Details -->
-										<div class="job-listing-details">
-
-											<!-- Details -->
-											<div class="job-listing-description">
-												<h3 class="job-listing-title"><a href="#">Node.js Developer</a> <span class="dashboard-status-button red">Expired</span></h3>
-
-												<!-- Job Listing Footer -->
-												<div class="job-listing-footer">
-													<ul>
-														<li><i class="icon-material-outline-date-range"></i> Posted on 16 May, 2018</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Buttons -->
-									<div class="buttons-to-right always-visible">
-										<a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">7</span></a>
-										<a href="#" class="button dark ripple-effect"><i class="icon-feather-rotate-ccw"></i> Refresh</a>
-										<a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-										<a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
-									</div>
-								</li>
-
-							</ul>
-						</div>
+						</ul>
 					</div>
 				</div>
-
 			</div>
-			<!-- Row / End -->
-
-			<!-- Footer -->
-			<div class="dashboard-footer-spacer"></div>
-			<div class="small-footer margin-top-15">
-				<div class="small-footer-copyrights">
-					© 2018 <strong>Hireo</strong>. All Rights Reserved.
-				</div>
-				<ul class="footer-social-links">
-					<li>
-						<a href="#" title="Facebook" data-tippy-placement="top">
-							<i class="icon-brand-facebook-f"></i>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="Twitter" data-tippy-placement="top">
-							<i class="icon-brand-twitter"></i>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="Google Plus" data-tippy-placement="top">
-							<i class="icon-brand-google-plus-g"></i>
-						</a>
-					</li>
-					<li>
-						<a href="#" title="LinkedIn" data-tippy-placement="top">
-							<i class="icon-brand-linkedin-in"></i>
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-			<!-- Footer / End -->
 
 		</div>
+		<!-- Row / End -->
+
+		<!-- Footer -->
+		<div class="dashboard-footer-spacer"></div>
+		<div class="small-footer margin-top-15">
+			<div class="small-footer-copyrights">
+				© 2018 <strong>Hireo</strong>. All Rights Reserved.
+			</div>
+			<ul class="footer-social-links">
+				<li>
+					<a href="#" title="Facebook" data-tippy-placement="top">
+						<i class="icon-brand-facebook-f"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="Twitter" data-tippy-placement="top">
+						<i class="icon-brand-twitter"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="Google Plus" data-tippy-placement="top">
+						<i class="icon-brand-google-plus-g"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="LinkedIn" data-tippy-placement="top">
+						<i class="icon-brand-linkedin-in"></i>
+					</a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- Footer / End -->
+
 	</div>
-	<!-- Dashboard Content / End -->
+</div>
+<!-- Dashboard Content / End -->
 
 @endsection

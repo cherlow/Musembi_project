@@ -61,14 +61,14 @@
 
                             <ul data-submenu-title="Start">
                             <li class="active"><a href="{{url('/home')}}"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-                            <li><a href="{{url('/usermessages')}}"><i class="icon-material-outline-question-answer"></i> Messages <span class="nav-tag">2</span></a></li>
+                            <li><a href="{{url('/usermessages')}}"><i class="icon-material-outline-question-answer"></i> Messages </a></li>
 
                             <li><a href="{{url('/userreviews')}}"><i class="icon-material-outline-rate-review"></i> Reviews</a></li>
                             </ul>
 
                             <ul data-submenu-title="Organize and Manage">
 
-                                <li><a href="userjobs"><i class="icon-material-outline-assignment"></i>My Job Applications</a>
+                                <li><a href="/userjobs"><i class="icon-material-outline-assignment"></i>My Job Applications</a>
 
                                 </li>
                             </ul>

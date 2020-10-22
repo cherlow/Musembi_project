@@ -17,7 +17,13 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+
+
+
+
 Route::get('/user', 'BackendApiController@myaccount');
+Route::post('/jobsearch', 'BackendApiController@jobsearch');
+Route::post('/usersearch', 'BackendApiController@usersearch');
 Route::post('/adduserskill', 'BackendApiController@adduserskill');
 Route::post('/changeavatar', 'BackendApiController@changeavatar');
 Route::post('/updateuser', 'BackendApiController@updateuser');
@@ -28,11 +34,3 @@ Route::post('/uploadtaskattachments', 'BackendApiController@uploadtaskattachment
 Route::get('/gettasks', 'FrontEndApiController@gettasks');
 Route::get('/gethustlancers', 'FrontEndApiController@gethustlancers');
 Route::post('/bid', 'BidController@store');
-
-
-
-
-
-
-
-

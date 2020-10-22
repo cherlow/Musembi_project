@@ -59,7 +59,9 @@
                         </div>
 
                         <!-- Button -->
-                        <a href="/messages" class="apply-now-button margin-bottom-50">Make an Offer <i class="icon-material-outline-arrow-right-alt"></i></a>
+
+
+                        <a :href="'/messages/'+ hustlancer.name" class="apply-now-button margin-bottom-50">Make an Offer <i class="icon-material-outline-arrow-right-alt"></i></a>
 
                         <!-- Freelancer Indicators -->
                         <div class="sidebar-widget">

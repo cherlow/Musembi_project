@@ -103,7 +103,7 @@
                     class="button ripple-effect move-on-hover full-width margin-top-30"
                     @click.prevent="bidtask()"
                   >
-                    <span>Place a Bid</span>
+                    <span>Submit Application</span>
                   </button>
                 </div>
                 <!-- <div v-if="!auth" class="bidding-signup">Sign up to bid on this project <a href="/login" class="register-tab sign-in">Sign Up</a></div> -->
@@ -200,6 +200,10 @@
   </div>
 </template>
 <script>
+import Toasted from "vue-toasted";
+
+Vue.use(Toasted);
+
 export default {
   name: "singletask",
   props: {
@@ -217,6 +221,7 @@ export default {
     };
   },
   created() {
+    this.showtoast();
     this.taskdata = JSON.parse(this.task);
     this.applications = JSON.parse(this.applicants);
   },
@@ -238,8 +243,19 @@ export default {
         })
         .then((res) => {
           console.log(res);
+
+          this.$toasted.show("Job application submitted successfully");
         })
-        .catch((e) => console.log(e));
+        .catch((e) => {
+          console.log(e);
+
+          this.$toasted.show("You already have an active job application");
+        });
+    },
+
+    showtoast() {
+      //
+      // $this.$toasted.show("hello toast");
     },
   },
 };

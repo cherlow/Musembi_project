@@ -36,16 +36,25 @@ class BidController extends Controller
     public function store(Request $request)
     {
 
-        $bid = new Bid();
-        $bid->user_id = $request->authid;
+        $userbid = Bid::where("user_id", $request->authid)->where("task_id", $request->taskid)->first();
 
-        $bid->task_id = $request->taskid;
-        $bid->bid_amount = 0;
-        $bid->delivery_time = 0;
-        $bid->description = "n/a";
-        $bid->details = $request->details;
+        if ($userbid) {
+            return response("you already have applied for this Job", 409);
+        } else {
 
-        $bid->save();
+            $bid = new Bid();
+            $bid->user_id = $request->authid;
+
+            $bid->task_id = $request->taskid;
+            $bid->bid_amount = 0;
+            $bid->delivery_time = 0;
+            $bid->description = "n/a";
+            $bid->details = $request->details;
+
+            $bid->save();
+
+            return response("Job application placed successfully", 200);
+        }
     }
 
     /**

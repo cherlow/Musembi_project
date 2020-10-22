@@ -15,8 +15,8 @@ class JobController extends Controller
      */
     public function index(Task $task)
     {
-        return $task->bids;
-        return view("backend.applications");
+        $applications = $task->bids;
+        return view("backend.applications")->with("applications", $applications)->with('task', $task);
     }
 
     /**
@@ -88,6 +88,17 @@ class JobController extends Controller
     public function userjobs()
     {
 
-        return view("backend.userjobs");
+        $jobs = auth()->user()->bids;
+        return view("backend.userjobs")->with("jobs", $jobs);
+    }
+
+
+    public function indexsearch($query)
+    {
+
+
+        $jobs = Task::where('title', "LIKE", '%' . $query . '%')->get();
+
+        return view("pages.searchresults")->with("jobs", $jobs)->with("query", $query);
     }
 }

@@ -81,11 +81,11 @@
                                         <div class="buttons-to-right always-visible">
                                         <a href="{{'/applications/'.$task->id}}" class="button ripple-effect"><i
                                                     class="icon-material-outline-supervisor-account"></i> Manage Candidates
-                                                <span class="button-info">0</span></a>
-                                            <a href="#" class="button gray ripple-effect ico" title="Edit"
+                                                <span class="button-info">{{ count($task->bids) }}</span></a>
+                                            {{-- <a href="#" class="button gray ripple-effect ico" title="Edit"
                                                 data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
                                             <a href="#" class="button gray ripple-effect ico" title="Remove"
-                                                data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                                                data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a> --}}
                                         </div>
                                     </li>
                                 @endforeach

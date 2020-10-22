@@ -34,3 +34,7 @@ Route::get('/reviews', 'ReviewController@index');
 Route::get('/userjobs', 'JobController@userjobs');
 Route::get('/useraccount', 'UsersController@useraccount');
 Route::get('/samp', 'UsersController@samp');
+Route::get('/messages/{user}', 'MessageController@messaging');
+Route::get('/create', 'MessageController@mcreate');
+Route::post('/message/create/{user}', 'MessageController@mcreate');
+Route::get('/jobsindex/search/{query}', 'JobController@indexsearch');

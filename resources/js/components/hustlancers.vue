@@ -8,33 +8,15 @@
             <h3>Location</h3>
             <div class="input-with-icon">
               <div id="">
-                <input id="" type="text" placeholder="Location" />
+                <input
+                  v-model="location"
+                  id=""
+                  type="text"
+                  placeholder="Location"
+                />
               </div>
               <i class="icon-material-outline-location-on"></i>
             </div>
-          </div>
-
-          <!-- Category -->
-          <div class="sidebar-widget">
-            <h3>Category</h3>
-            <select
-              class="selectpicker default"
-              multiple
-              data-selected-text-format="count"
-              data-size="7"
-              title="All Categories"
-            >
-              <option>Admin Support</option>
-              <option>Customer Service</option>
-              <option>Data Analytics</option>
-              <option>Design & Creative</option>
-              <option>Legal</option>
-              <option>Software Developing</option>
-              <option>IT & Networking</option>
-              <option>Writing</option>
-              <option>Translation</option>
-              <option>Sales & Marketing</option>
-            </select>
           </div>
 
           <!-- Keywords -->
@@ -46,6 +28,7 @@
                   type="text"
                   class="keyword-input"
                   placeholder="e.g. name"
+                  v-model="name"
                 />
               </div>
               <div class="keywords-list"><!-- keywords go here --></div>
@@ -60,7 +43,7 @@
           <div class="clearfix"></div>
 
           <div class="sidebar-widget">
-            <a href="#"
+            <a href="" @click.prevent="searchusers()"
               ><span class="button button-sliding-icon ripple-effect">
                 Search
                 <i class="icon-material-outline-arrow-right-alt"></i></span
@@ -75,89 +58,7 @@
         </h3>
 
         <!-- my accordion here -->
-        <div class="accordion js-accordion hustlancers-filters">
-          <!-- Accordion Item -->
-          <div class="accordion__item js-accordion-item">
-            <div class="accordion-header js-accordion-header">
-              <i class="icon-feather-filter"></i> Filters
-            </div>
 
-            <!-- Accordtion Body -->
-            <div class="accordion-body js-accordion-body">
-              <!-- Accordion Content -->
-              <div class="accordion-body__contents">
-                <div class="col-xl-3 col-lg-4">
-                  <div class="sidebar-container">
-                    <!-- Location -->
-                    <div class="sidebar-widget">
-                      <h3>Location</h3>
-                      <div class="input-with-icon">
-                        <div id="">
-                          <input id="" type="text" placeholder="Location" />
-                        </div>
-                        <i class="icon-material-outline-location-on"></i>
-                      </div>
-                    </div>
-
-                    <!-- Category -->
-                    <div class="sidebar-widget">
-                      <h3>Category</h3>
-                      <select
-                        class="selectpicker default"
-                        multiple
-                        data-selected-text-format="count"
-                        data-size="7"
-                        title="All Categories"
-                      >
-                        <option>Admin Support</option>
-                        <option>Customer Service</option>
-                        <option>Data Analytics</option>
-                        <option>Design & Creative</option>
-                        <option>Legal</option>
-                        <option>Software Developing</option>
-                        <option>IT & Networking</option>
-                        <option>Writing</option>
-                        <option>Translation</option>
-                        <option>Sales & Marketing</option>
-                      </select>
-                    </div>
-
-                    <!-- Keywords -->
-                    <div class="sidebar-widget">
-                      <h3>Name</h3>
-                      <div class="keywords-container">
-                        <div class="keyword-input-container">
-                          <input
-                            type="text"
-                            class="keyword-input"
-                            placeholder="e.g. task title"
-                          />
-                          <button class="keyword-input-button ripple-effect">
-                            <i class="icon-material-outline-add"></i>
-                          </button>
-                        </div>
-                        <div class="keywords-list">
-                          <!-- keywords go here -->
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
-                    </div>
-
-                    <!-- Hourly Rate -->
-
-                    <!-- Tags -->
-
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Accordion Body / End -->
-          </div>
-          <!-- Accordion Item / End -->
-        </div>
-
-        <!-- my accordion end  -->
         <!-- Freelancers List Container -->
         <div
           class="freelancers-container freelancers-list-layout margin-top-35"
@@ -240,6 +141,8 @@ export default {
   data() {
     return {
       hustlancers: [],
+      name: "",
+      location: "",
     };
   },
   methods: {
@@ -247,6 +150,24 @@ export default {
       axios
         .get("/api/gethustlancers")
         .then((res) => (this.hustlancers = res.data.data))
+        .catch((e) => console.log(e));
+    },
+
+    searchusers() {
+      let formData = new FormData();
+      formData.append("location", this.location);
+      formData.append("name", this.name);
+
+      axios
+        .post("/api/usersearch", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.hustlancers = res.data.data;
+          console.log(res);
+        })
         .catch((e) => console.log(e));
     },
   },
