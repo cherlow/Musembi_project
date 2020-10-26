@@ -70,6 +70,10 @@
                                             <div>{{ $application->details }}</div>
                                             <!-- Buttons -->
                                             <div class="buttons-to-right always-visible margin-top-25 margin-bottom-5">
+
+                                                <a href="/jobaccept/{{ $application->id }}"
+                                                    class="button dark ripple-effect"><i class="icon-feather-check"></i>
+                                                    Accept Appliction</a>
                                                 <a href="/messages/{{ $application->user->name }}"
                                                     class="button dark ripple-effect"><i class="icon-feather-mail"></i>
                                                     Send Message</a>

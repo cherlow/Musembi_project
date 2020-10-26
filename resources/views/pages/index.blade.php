@@ -150,7 +150,7 @@
 
 
 
-                        @foreach ($jobs as $job)
+                        @foreach ($jobs->where("status","pending") as $job)
                         <a href="{{ url('/tasks/' . $job->slug) }}" class="task-listing">
 
                             <!-- Job Listing Details -->
@@ -231,7 +231,7 @@
 
 
 
-                        @foreach ($users as $user)
+                        @foreach ($users->where("role","hustlancer") as $user)
                         <div class="freelancer">
 
                             <!-- Overview -->

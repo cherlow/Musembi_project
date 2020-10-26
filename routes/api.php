@@ -22,14 +22,14 @@ use Illuminate\Http\Request;
 
 
 Route::get('/user', 'BackendApiController@myaccount');
-Route::post('/jobsearch', 'BackendApiController@jobsearch');
-Route::post('/usersearch', 'BackendApiController@usersearch');
+Route::post('/jobsearch', 'FrontEndApiController@jobsearch');
+Route::post('/usersearch', 'FrontEndApiController@usersearch');
 Route::post('/adduserskill', 'BackendApiController@adduserskill');
 Route::post('/changeavatar', 'BackendApiController@changeavatar');
 Route::post('/updateuser', 'BackendApiController@updateuser');
 Route::post('/newtask', 'BackendApiController@newtask');
 Route::post('/newskill', 'BackendApiController@newskill');
-Route::get('/getcategories', 'BackendApiController@getcategories');
+Route::get('/getcategories', 'FrontEndApiController@getcategories');
 Route::post('/uploadtaskattachments', 'BackendApiController@uploadtaskattachments');
 Route::get('/gettasks', 'FrontEndApiController@gettasks');
 Route::get('/gethustlancers', 'FrontEndApiController@gethustlancers');

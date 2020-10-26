@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttachmentController;
+
 Route::get('/', 'PagesController@index')->name('index');
 
 Auth::routes();
@@ -38,3 +42,11 @@ Route::get('/messages/{user}', 'MessageController@messaging');
 Route::get('/create', 'MessageController@mcreate');
 Route::post('/message/create/{user}', 'MessageController@mcreate');
 Route::get('/jobsindex/search/{query}', 'JobController@indexsearch');
+Route::get('/jobaccept/{bid}', 'JobController@jobaccept');
+Route::get('/leavereview/{task}', 'ReviewController@leavereview');
+Route::post('/postreview/{task}', 'ReviewController@postreview');
+
+Route::get('encrypt', function () {
+    $message =  Crypt::encrypt('message');
+    return Crypt::decrypt($message);
+});

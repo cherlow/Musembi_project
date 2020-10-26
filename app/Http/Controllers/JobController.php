@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use toastr;
+use App\Bid;
 use App\Job;
 use App\Task;
 use Illuminate\Http\Request;
@@ -97,8 +99,24 @@ class JobController extends Controller
     {
 
 
-        $jobs = Task::where('title', "LIKE", '%' . $query . '%')->get();
+        $jobs = Task::where('title', "LIKE", '%' . $query . '%')->where("status", "pending")->get();
 
         return view("pages.searchresults")->with("jobs", $jobs)->with("query", $query);
+    }
+
+
+    public function jobaccept(Bid $bid)
+    {
+
+        $task = $bid->task;
+
+        $task->developer_id = $bid->user->id;
+        $task->status = "done";
+
+        $task->save();
+
+        toastr()->success('Your job listing was closed successfully');
+
+        return redirect("/managetasks");
     }
 }

@@ -47,4 +47,9 @@ class Task extends Model
     public function bids(){
         return $this->hasMany('App\Bid');
     }
+
+    public function developer(){
+
+        return $this->belongsTo('App\User','developer_id');
+    }
 }

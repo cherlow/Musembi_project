@@ -84,7 +84,8 @@
             </div>
 
             <div class="sidebar-widget">
-              <div class="bidding-widget">
+              <div class="bidding-widget" v-if="oot.role == 'hustlancer'">
+               
                 <div class="bidding-headline"><h3>Apply this job!</h3></div>
                 <div class="bidding-inner" v-if="auth">
                   <div class="submit-field">
@@ -218,9 +219,12 @@ export default {
 
       intro: "",
       applications: [],
+      oot: {},
     };
   },
   created() {
+    this.oot = JSON.parse(this.auth);
+
     this.showtoast();
     this.taskdata = JSON.parse(this.task);
     this.applications = JSON.parse(this.applicants);

@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Laravel\Passport\HasApiTokens;
+use DGvai\Review\Reviewable;
 // use Cmgmyr\Messenger\Traits\Messagable;
+use Laravel\Passport\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
 use Inani\Messager\Helpers\TagsCreator;
 use Illuminate\Notifications\Notifiable;
@@ -13,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, MessageAccessible, TagsCreator;
+    use HasApiTokens, Notifiable, MessageAccessible, TagsCreator, Reviewable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,10 +60,5 @@ class User extends Authenticatable
     public function tasks()
     {
         return $this->hasMany('App\Task');
-    }
-
-    public function reviews()
-    {
-        return $this->hasMany('App\Review');
     }
 }

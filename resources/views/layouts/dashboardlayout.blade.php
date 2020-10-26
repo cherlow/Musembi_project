@@ -15,6 +15,8 @@
 ================================================== -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/colors/green.css') }}">
+
+    @toastr_css
     {{--
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 
@@ -155,6 +157,9 @@
     <!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
     <script type="application/javascript" src="{{ asset('js/chart.min.js') }}"></script>
 
+    @toastr_js
+
+    @toastr_render
 
 
 </body>
