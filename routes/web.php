@@ -44,7 +44,9 @@ Route::post('/message/create/{user}', 'MessageController@mcreate');
 Route::get('/jobsindex/search/{query}', 'JobController@indexsearch');
 Route::get('/jobaccept/{bid}', 'JobController@jobaccept');
 Route::get('/leavereview/{task}', 'ReviewController@leavereview');
+Route::get('/userleavereview/{task}', 'ReviewController@userleavereview');
 Route::post('/postreview/{task}', 'ReviewController@postreview');
+Route::post('/userpostreview/{task}', 'ReviewController@userpostreview');
 
 Route::get('encrypt', function () {
     $message =  Crypt::encrypt('message');

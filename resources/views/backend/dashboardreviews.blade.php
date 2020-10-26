@@ -87,25 +87,26 @@
                     <div class="content">
                         <ul class="dashboard-box-list">
 
+                            @foreach ($reviews as $review)
                             <li>
                                 <div class="boxed-list-item">
                                     <!-- Content -->
                                     <div class="item-content">
-                                        <h4>Help Fix Laravel PHP issue</h4>
+                                        <h4>{{ $review->user->name }}</h4>
                                         <div class="item-details margin-top-10">
-                                            <div class="star-rating" data-rating="5.0"></div>
+                                            <div class="star-rating" data-rating="{{ $review->rating }}"></div>
                                             <div class="detail-item"><i class="icon-material-outline-date-range"></i>
-                                                August 2018</div>
+                                                {{ $review->created_at->diffForHumans() }}</div>
                                         </div>
                                         <div class="item-description">
-                                            <p>Excellent programmer - helped me fixing small issue.</p>
+                                            <p>{{ $review->review }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#small-dialog-1"
-                                    class="popup-with-zoom-anim button gray ripple-effect margin-top-5 margin-bottom-10"><i
-                                        class="icon-feather-edit"></i> Edit Review</a>
+
                             </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
