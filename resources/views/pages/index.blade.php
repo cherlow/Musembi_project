@@ -257,7 +257,7 @@
 
                                     <!-- Rating -->
                                     <div class="freelancer-rating">
-                                        <div class="star-rating" data-rating="{{ auth()->user()->averageRating() }}">
+                                        <div class="star-rating" data-rating="{{ $user->averageRating() }}">
                                         </div>
                                     </div>
                                 </div>
@@ -269,9 +269,10 @@
                                     <ul>
                                         <li>Location <strong><i class="icon-material-outline-location-on"></i>
                                                 {{ $user->location }}</strong></li>
-                                        <li>Reviews <strong>{{ count(auth()->user()->reviews()->get()) }}</strong></li>
+                                        <li>Reviews <strong>{{ count($user->reviews()->get()) }}</strong></li>
                                         <li> Jobs Won
-                                            <strong>{{count( $jobs->where("developer_id",auth()->user()->id) )}}</strong></li>
+                                            <strong>{{count( $jobs->where("developer_id",$user->id) )}}</strong>
+                                        </li>
                                     </ul>
                                 </div>
                                 <a href="/hustlancers/{{ $user->name }}"

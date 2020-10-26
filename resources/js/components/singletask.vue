@@ -23,7 +23,7 @@
                         {{ this.taskdata.employer.name }}</a
                       >
                     </li>
-                    <li><div class="star-rating" data-rating="4.0"></div></li>
+                    <!-- <li><div class="star-rating" data-rating="4.0"></div></li> -->
                     <li>{{ this.taskdata.employer.location }}</li>
                   </ul>
                 </div>
@@ -85,7 +85,6 @@
 
             <div class="sidebar-widget">
               <div class="bidding-widget" v-if="oot.role == 'hustlancer'">
-               
                 <div class="bidding-headline"><h3>Apply this job!</h3></div>
                 <div class="bidding-inner" v-if="auth">
                   <div class="submit-field">

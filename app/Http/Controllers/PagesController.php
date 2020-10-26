@@ -13,10 +13,9 @@ class PagesController extends Controller
 {
     public function index()
     {
-         $jobs = TaskResource::collection(Task::orderBy('id', "desc")->get());
+        $jobs = TaskResource::collection(Task::orderBy('id', "desc")->get());
         $users = UserResource::collection(User::orderBy("id", "desc")->get());
-        return view('pages.index')->with("users", $users)->with("jobs", $jobs
-    );
+        return view('pages.index')->with("users", $users)->with("jobs", $jobs);
     }
     public function hustlancers()
     {
@@ -25,7 +24,9 @@ class PagesController extends Controller
     public function singlehustlancer($name)
     {
 
+        
         $user = User::where('name', $name)->first();
+        // return $user->reviews()->get();
         return view('pages.singlehustlancer')->with('user', $user)->with('resource', new HustlancerResource($user));
     }
     public function tasks()

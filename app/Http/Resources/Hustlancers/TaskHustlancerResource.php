@@ -16,8 +16,8 @@ class TaskHustlancerResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "task"=>$this->title, 
-            "review"=> new ReviewResource($this->review),
+            "task" => $this->title,
+            "review" => null,
 
         ];
     }

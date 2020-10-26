@@ -106,7 +106,9 @@
                       {{ hustlancer.location }}</strong
                     >
                   </li>
-                  <li>Reviews <strong>0</strong></li>
+                  <li>
+                    Reviews <strong>{{ hustlancer.reviews.length }}</strong>
+                  </li>
                   <li>
                     Job Done <strong>{{ hustlancer.tasks.length }}</strong>
                   </li>
