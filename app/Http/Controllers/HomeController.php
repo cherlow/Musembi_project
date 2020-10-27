@@ -39,7 +39,7 @@ class HomeController extends Controller
         } else if (auth()->user()->role == "employer") {
             return view('backend.dashboard');
         } else {
-            return view('backend.admindashboard');
+            return view('admin.home');
         }
     }
 }

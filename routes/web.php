@@ -48,6 +48,20 @@ Route::get('/userleavereview/{task}', 'ReviewController@userleavereview');
 Route::post('/postreview/{task}', 'ReviewController@postreview');
 Route::post('/userpostreview/{task}', 'ReviewController@userpostreview');
 
+
+
+
+Route::get('/admin/jobs', 'AdminController@jobs');
+Route::get('/admin/jobs/{task}', 'AdminController@jobsshow');
+Route::get('/admin/users', 'AdminController@users');
+Route::get('/admin/users/{user}', 'AdminController@usersshow');
+Route::get('/admin/employers', 'AdminController@employers');
+Route::get('/admin/employers/{user}', 'AdminController@employersshow');
+Route::get('/admin/categories', 'AdminController@categories');
+Route::get('/admin/category/{category}', 'AdminController@deletecategory');
+Route::post('/admin/category', 'AdminController@addcategory');
+
+
 Route::get('encrypt', function () {
     $message =  Crypt::encrypt('message');
     return Crypt::decrypt($message);
