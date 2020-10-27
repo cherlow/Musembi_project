@@ -11,7 +11,7 @@
                 <div class="header-image">
                   <a href="javascript:void(0)"
                     ><img :src="this.taskdata.employer.avatar" alt=""
-                  /></a>
+                  ></a>
                 </div>
                 <div class="header-details">
                   <h3>{{ this.taskdata.title }}</h3>

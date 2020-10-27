@@ -119,7 +119,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./">
+                    <a class="navbar-brand" href="/">
                         <h2>Ajira</h2>
                     </a>
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
